@@ -8,10 +8,10 @@ sources:
     handler:
       graphql:
         endpoint: http://0.0.0.0:3004/graphql
-transforms:
-  - filterSchema:
-      filters:
-        - Query.stores
+#transforms:
+#  - filterSchema:
+#      filters:
+#        - Query.stores
 additionalTypeDefs: |
   extend type Store {
     bookSells: [Sells!]!
