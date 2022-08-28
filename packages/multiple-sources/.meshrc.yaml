@@ -4,6 +4,11 @@ sources:
       openapi:
         baseUrl: http://localhost:3002/
         source: ../books-service/openapi3-definition.json
+  - name: Tea
+    handler:
+      openapi:
+        baseUrl: http://localhost:4001/
+        source: ../tea/oa3.yaml
   - name: Stores
     handler:
       graphql:

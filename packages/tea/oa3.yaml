@@ -1,0 +1,43 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Tea API
+  description: Tea API
+paths:
+  /tea:
+    get:
+      description: Returns a list of stuff              
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tea'
+  /teas:
+    get:
+      description: Returns a list of stuff              
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tea'
+components:
+  schemas:
+    Tea:
+      type: object
+      properties:
+        price:
+          type: integer
+        id:
+          type: string

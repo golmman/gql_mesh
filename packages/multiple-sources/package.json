@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": "true",
   "scripts": {
-    "start": "mesh build && mesh start",
+    "start": "rm -rf .mesh && mesh build && mesh start",
     "build": "echo \"noop\";"
   },
   "dependencies": {
