@@ -4,14 +4,14 @@ type Store {
   location: String!
 }
 
-type Sells {
-  bookId: ID!
-  sellsCount: Int!
-  monthYear: String
-  storeId: ID!
-}
+#type Sells {
+#  bookId: ID!
+#  sellsCount: Int!
+#  monthYear: String
+#  storeId: ID!
+#}
 
 type Query {
   stores: [Store!]!
-  bookSells(storeId: ID!): [Sells!]!
+  #bookSells(storeId: ID!): [Sells!]!
 }

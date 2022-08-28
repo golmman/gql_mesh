@@ -4,7 +4,6 @@ export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-export type RequireFields<T, K extends keyof T> = Omit<T, K> & { [P in K]-?: NonNullable<T[P]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -16,21 +15,7 @@ export type Scalars = {
 
 export type Query = {
   __typename?: 'Query';
-  bookSells: Array<Sells>;
   stores: Array<Store>;
-};
-
-
-export type QueryBookSellsArgs = {
-  storeId: Scalars['ID'];
-};
-
-export type Sells = {
-  __typename?: 'Sells';
-  bookId: Scalars['ID'];
-  monthYear?: Maybe<Scalars['String']>;
-  sellsCount: Scalars['Int'];
-  storeId: Scalars['ID'];
 };
 
 export type Store = {
@@ -112,9 +97,7 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 export type ResolversTypes = ResolversObject<{
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   ID: ResolverTypeWrapper<Scalars['ID']>;
-  Int: ResolverTypeWrapper<Scalars['Int']>;
   Query: ResolverTypeWrapper<{}>;
-  Sells: ResolverTypeWrapper<Sells>;
   Store: ResolverTypeWrapper<Store>;
   String: ResolverTypeWrapper<Scalars['String']>;
 }>;
@@ -123,24 +106,13 @@ export type ResolversTypes = ResolversObject<{
 export type ResolversParentTypes = ResolversObject<{
   Boolean: Scalars['Boolean'];
   ID: Scalars['ID'];
-  Int: Scalars['Int'];
   Query: {};
-  Sells: Sells;
   Store: Store;
   String: Scalars['String'];
 }>;
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
-  bookSells?: Resolver<Array<ResolversTypes['Sells']>, ParentType, ContextType, RequireFields<QueryBookSellsArgs, 'storeId'>>;
   stores?: Resolver<Array<ResolversTypes['Store']>, ParentType, ContextType>;
-}>;
-
-export type SellsResolvers<ContextType = any, ParentType extends ResolversParentTypes['Sells'] = ResolversParentTypes['Sells']> = ResolversObject<{
-  bookId?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
-  monthYear?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  sellsCount?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  storeId?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
 export type StoreResolvers<ContextType = any, ParentType extends ResolversParentTypes['Store'] = ResolversParentTypes['Store']> = ResolversObject<{
@@ -152,7 +124,6 @@ export type StoreResolvers<ContextType = any, ParentType extends ResolversParent
 
 export type Resolvers<ContextType = any> = ResolversObject<{
   Query?: QueryResolvers<ContextType>;
-  Sells?: SellsResolvers<ContextType>;
   Store?: StoreResolvers<ContextType>;
 }>;
 

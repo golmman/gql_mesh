@@ -12,8 +12,7 @@
     ]
   },
   "scripts": {
-    "start": "concurrently --kill-others 'yarn workspace mesh-multiple-sources start' 'yarn workspace books-service start' 'yarn workspace tea start' 'yarn workspace stores-service start'",
-    "start:single": "concurrently --kill-others 'yarn workspace mesh-single-source start' 'yarn workspace books-service start'"
+    "start": "concurrently --kill-others 'yarn workspace mesh-multiple-sources start' 'yarn workspace tea start' 'yarn workspace stores-service start'",
   },
   "dependencies": {
     "concurrently": "^7.0.0"

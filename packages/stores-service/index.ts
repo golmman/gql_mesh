@@ -52,7 +52,7 @@ const bookSells: Sells[] = [
 
 const resolvers: Resolvers = {
   Query: {
-    bookSells: (_p, args) => bookSells.filter(bs => bs.storeId === args.storeId),
+    //bookSells: (_p, args) => bookSells.filter(bs => bs.storeId === args.storeId),
     stores: () => stores,
   },
 };
